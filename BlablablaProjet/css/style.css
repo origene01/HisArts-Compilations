@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+  }
+
+  .navbar {
+    background-color: #cecece;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo img {
+    max-width: 100px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .menu img {
+    width: 30px;
+  }
+
+  /* Media queries para dispositivos móviles */
+  @media only screen and (max-width: 600px) {
+    .navbar {
+      align-items: center;
+    }
+
+    .menu {
+      margin-top: 10px;
+    }
+  }
+
+/* Esto acá son los estilos de las publicaciones en la página de Inicio de HisArts */
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  .post-header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .username {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .post-content {
+    padding: 10px;
+  }
+
+  .post-image{
+    width: 100%;
+  }
+  .post-image img{
+    width: 100%;
+  }
+
+  .post-description {
+    margin-bottom: 10px;
+  }
+
+  .post-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+
+  .post-actions .comentarios{
+    width: 8%;
+  }
+
+  .action-icons {
+    display: flex;
+    gap: 30px;
+  }
+
+  .action-icons img {
+    width: 7%;
+  }
+
+  .action-icons img:hover {
+    color: #333;
+  }
