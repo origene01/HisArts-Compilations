@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil de Usuario</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    margin: 50px auto;
+  }
+
+  h2 {
+    color: #333;
+  }
+
+  .profile-info {
+    margin-top: 20px;
+  }
+
+  .profile-info div {
+    margin-bottom: 10px;
+  }
+
+  #profileName {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  #logoutBtn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  #logoutBtn:hover {
+    background-color: #d32f2f;}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Perfil de Usuario</h2>
+  <div class="profile-info">
+    <div id="username"></div>
+    <div id="useremail"></div>
+  </div>
+
+  <button id="logoutBtn">Cerrar sesión</button>
+  
+  <script>
+    // Recupera los datos del usuario del almacenamiento local
+    var savedUsername = localStorage.getItem("username");
+    var savedUserEmail = localStorage.getItem("useremail");
+
+    // Muestra los datos del usuario en la página de perfil
+    if (savedUsername) {
+      document.getElementById("username").innerText = "Nombre de usuario: " + savedUsername;
+    }
+    if (savedUserEmail) {
+      document.getElementById("useremail").innerText = "Correo electrónico: " + savedUserEmail;
+    }
+
+
+    // Verifica si hay datos guardados en el almacenamiento local al cargar la página
+    window.onload = function() {
+      var savedUsername = localStorage.getItem("username");
+      var loggedOut = localStorage.getItem("loggedOut");
+      if (savedUsername && !loggedOut) {
+        document.getElementById("profileName").innerText = "Nombre de perfil: " + savedUsername;
+      } else {
+        // Redirigir a la página de inicio de sesión si no hay datos guardados o el usuario ha cerrado sesión
+        window.location.href = "Home/sinregistro.html";
+      }
+    };
+
+    // Función para cerrar sesión
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      localStorage.setItem("loggedOut", "true");
+      // Redirigir a la página de inicio de sesión después de cerrar sesión
+      window.location.href = "Home/sinregistro.html";
+    });
+ 
+  </script>
+</div>
+</body>
+</html>
