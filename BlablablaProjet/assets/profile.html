@@ -87,7 +87,7 @@
         document.getElementById("profileName").innerText = "Nombre de perfil: " + savedUsername;
       } else {
         // Redirigir a la página de inicio de sesión si no hay datos guardados o el usuario ha cerrado sesión
-        window.location.href = "Home/sinregistro.html";
+        window.location.href = "./../../index.html";
       }
     };
 
@@ -95,7 +95,7 @@
     document.getElementById("logoutBtn").addEventListener("click", function() {
       localStorage.setItem("loggedOut", "true");
       // Redirigir a la página de inicio de sesión después de cerrar sesión
-      window.location.href = "Home/sinregistro.html";
+      window.location.href = "./../../index.html";
     });
  
   </script>
