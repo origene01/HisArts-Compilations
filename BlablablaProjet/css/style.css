@@ -134,6 +134,139 @@ body {
     color: #333;
   }
 
-  .action-icons img:hover {
-    color: #333;
+  /*------------- Camara -------------- */
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cameraSection {
+    margin-bottom: 20px;
+}
+
+#cameraSection h2{
+  font-size: 18px;
+}
+
+.camera-icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+}
+
+
+
+.camera-icon img {
+    width: 100%;
+    height: auto;
+}
+
+#cameraPosition {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 1em;
+}
+
+#containercamera{
+  display: flex;
+  height: 500px;
+  color: #fafafa;
+  justify-content: center;
+  align-items: center;
+  background-color: #a39e9e;
+}
+
+#cameraPosition h3 {
+    margin-bottom: 5px;
+}
+
+#videoElement {
+    display: block; /* Para ocultar el video por defecto "None" */
+    width: 70%;
+    border-radius: 1em;
+    box-shadow: 5px 3px 40px;
+
+}
+
+/* Menu inferior */
+
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #a0a0a0ab;
+  justify-content: center;
+  display: flex;
+  padding: 8px 0;
+  gap: 3em;
+}
+
+.icono {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.icono img {
+  width: 40px;
+  padding-left: 8px;
+}
+
+/* Menu flotante */
+
+.menufijo {
+  position: fixed;
+  right: 2.5em;
+  bottom: 7em;
+  width: 10%;
+  
+}
+
+.camera-iconflotante {
+  width: 500px;
+  height: 200px;
+  border-radius: 100%;
+  box-shadow: 0 20px 12px 2px rgba(35, 34, 34, 0.587);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 20%;
+}
+
+.camera-icon a img{
+  width: 100%;
+  transform: scale(2);
+  box-shadow: 0 15px 12px 0 rgba(35, 34, 34, 0.479);
+  border-radius: 100%;
+}
+
+.camera-icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* Camara. Media queries para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+  .camera-icon {
+      width: 30px;
+      height: 30px;
   }
+
+  #cameraPosition {
+      font-size: 14px;
+      width: 60%;
+  }
+}
+
+
+
