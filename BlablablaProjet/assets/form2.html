@@ -16,7 +16,7 @@
     <h2>Regístrate</h2>
     <form id="registrationForm">
       <input type="email" id="email" placeholder="Correo electrónico">
-      <input type="text" id="name" placeholder="Nombre">
+      <input type="text" id="name" placeholder="Nombre Completo">
       <input type="number" id="number" placeholder="Teléfono">
       <input type="password" id="password" placeholder="Contraseña">
       <input type="submit" value="Registrarse">
@@ -32,11 +32,13 @@
         // Obtiene los valores de los campos del formulario
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
+        var phone = document.getElementById("number").value;
         var password = document.getElementById("password").value;
   
         // Guarda los datos en el almacenamiento local del navegador
         localStorage.setItem("username", name);
         localStorage.setItem("useremail", email);
+        localStorage.setItem("phonenumber", phone);
         localStorage.setItem("userpassword", password);
   
         // Muestra el nombre del perfil después del registro
