@@ -1,183 +1,230 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
 
+.navbar {
+  background-color: #cecece;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+/* Parte del home (registrado) */
+.menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu img {
+  width: 30px;
+}
+
+/* -----------------------------*/
+
+.menu .registro {
+  display: block;
+  text-decoration: none;
+  padding: 10px 10px;
+  color: #ffffff;
+  background-color: #4d4d4d;
+  border-radius: 10px;
+}
+
+/* Media queries para dispositivos móviles */
+@media only screen and (max-width: 600px) {
   .navbar {
-    background-color: #cecece;
-    padding: 5px 20px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
   }
 
-  .logo img {
-    max-width: 100px;
-  }
-
-  /* Parte del home (registrado) */
   .menu {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    margin-top: 10px;
   }
-
-  .menu img {
-    width: 30px;
-  }
-  /* -----------------------------*/
-  
-  .menu .registro{
-    display: block;
-    text-decoration: none;
-    padding: 10px 10px;
-    color: #ffffff;
-    background-color: #4d4d4d;
-    border-radius: 10px;
-  }
-
-  /* Media queries para dispositivos móviles */
-  @media only screen and (max-width: 600px) {
-    .navbar {
-      align-items: center;
-    }
-
-    .menu {
-      margin-top: 10px;
-    }
-  }
+}
 
 /* Esto acá son los estilos de las publicaciones en la página de Inicio de HisArts */
 
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .post {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-    border-radius: 5px;
-  }
+.post {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
 
-  .post-header {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-  }
+.post-header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
 
-  .user-profile {
-    display: flex;
-    align-items: center;
-  }
+.user-profile {
+  display: flex;
+  align-items: center;
+}
 
-  .user-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 
-  .username {
-    font-weight: bold;
-    font-size: 16px;
-  }
+.username {
+  font-weight: bold;
+  font-size: 16px;
+}
 
-  .post-content {
-    padding: 10px;
-  }
+.post-content {
+  padding: 10px;
+}
 
-  .post-image{
-    width: 100%;
-  }
-  .post-image img{
-    width: 100%;
-  }
+.post-image {
+  width: 100%;
+}
 
-  .post-description {
-    margin-bottom: 10px;
-  }
+.post-image img {
+  width: 100%;
+}
 
-  .post-actions {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-  }
+.post-description {
+  margin-bottom: 10px;
+}
 
-  .post-actions .comentarios{
-    width: 8%;
-  }
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
 
-  .action-icons {
-    display: flex;
-    gap: 30px;
-  }
+.post-actions .comentarios {
+  width: 8%;
+}
 
-  .action-icons img {
-    width: 7%;
-  }
+.action-icons {
+  display: flex;
+  gap: 30px;
+}
 
-  .action-icons img:hover {
-    color: #333;
-  }
+.action-icons img {
+  width: 7%;
+}
 
-  /*------------- Camara -------------- */
+.action-icons img:hover {
+  color: #333;
+}
 
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Caja de Comentarios */
+
+.container-comentarios {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(235, 233, 233, 0.589);
+  border-radius: 30px;
+  display: block;
+}
+
+.comentario {
+
+  margin-top: 1em;
+  margin-bottom: 20px;
+  border-bottom: 0.4px solid #cecccc4e;
+  padding-bottom: 4px;
+}
+
+textarea {
+  width: 100%;
+  height: 50px;
+  resize: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+button {
+  background-color: #f3b257;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0c3e01;
+}
+
+/*------------- Camara -------------- */
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #cameraSection {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-#cameraSection h2{
+#cameraSection h2 {
   font-size: 18px;
 }
 
 .camera-icon {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 200px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
 }
 
 
 
 .camera-icon img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 #cameraPosition {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    gap: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1em;
 }
 
-#containercamera{
+#containercamera {
   display: flex;
   height: 500px;
   color: #fafafa;
@@ -187,14 +234,15 @@ body {
 }
 
 #cameraPosition h3 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 #videoElement {
-    display: block; /* Para ocultar el video por defecto "None" */
-    width: 70%;
-    border-radius: 1em;
-    box-shadow: 5px 3px 40px;
+  display: block;
+  /* Para ocultar el video por defecto "None" */
+  width: 70%;
+  border-radius: 1em;
+  box-shadow: 5px 3px 40px;
 
 }
 
@@ -225,32 +273,22 @@ body {
 
 /* Menu flotante */
 
-.menufijo {
+.floating-button {
   position: fixed;
-  right: 2.5em;
-  bottom: 7em;
-  width: 10%;
-  
+  bottom: 3.5em;
+  right: 20px;
 }
 
-.camera-iconflotante {
-  width: 500px;
-  height: 200px;
-  border-radius: 100%;
-  box-shadow: 0 20px 12px 2px rgba(35, 34, 34, 0.587);
+.floating-button img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.265);
   cursor: pointer;
   transition: transform 0.3s ease;
-  border-radius: 20%;
 }
 
-.camera-icon a img{
-  width: 100%;
-  transform: scale(2);
-  box-shadow: 0 15px 12px 0 rgba(35, 34, 34, 0.479);
-  border-radius: 100%;
-}
-
-.camera-icon:hover {
+.floating-button img:hover {
   transform: scale(1.1);
 }
 
@@ -258,15 +296,12 @@ body {
 /* Camara. Media queries para dispositivos móviles */
 @media only screen and (max-width: 600px) {
   .camera-icon {
-      width: 30px;
-      height: 30px;
+    width: 30px;
+    height: 30px;
   }
 
   #cameraPosition {
-      font-size: 14px;
-      width: 60%;
+    font-size: 14px;
+    width: 60%;
   }
 }
-
-
-
