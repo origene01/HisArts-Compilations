@@ -22,8 +22,8 @@
         <img src="../../img/WhatsApp_Image_2024-02-28_at_2.03.01_PM-removebg-preview.png" alt="LogoHisarts">
       </div>
       <div class="menu">
-        <a href="#"><img src="./../../img/Perfil.png" alt=""></a>
-        <a href="#"><img src="./../../img/notifications_icon_.png" alt=""></a>
+        <a href="../profile.html"><img src="./../../img/Perfil.png" alt=""></a>
+        <a href="../notificaciones.html"><img src="./../../img/notifications_icon_.png" alt=""></a>
       </div>
     </div>
     <div class="container">
@@ -51,6 +51,17 @@
           </div>
           <img src="../../img/Comentarios.png" alt="" class="comentarios">
         </div>
+
+        <div class="container-comentarios" id="container">
+          <h3>Comentarios</h3>
+          <textarea id="commentText" placeholder="Escribe tu comentario aquí..." required></textarea>
+          <button onclick="publicarComentario()" id="comentar">Publicar Comentario</button>
+
+          <div id="comentarios">
+            <!-- Aquí se mostrarán los comentarios -->
+          </div>
+        </div>
+
       </div>
 
       <div class="post2">
@@ -161,12 +172,10 @@
 
     <!--Menu flotante-->
 
-    <div class="menufijo">
-      <div class="camera-iconflotante">
-        <a href="../search.html">
-          <img src="../../img/Camara.png" alt="Camera Icon">
-        </a>
-      </div>
+    <div class="floating-button">
+      <a href="../search.html">
+        <img src="../../img/Camara.png" alt="Cámara">
+      </a>
     </div>
 
   </main>
@@ -174,8 +183,64 @@
 
   <script>
     function redirectToPage() {
-    window.location.href = "otra_pagina.html";
-  }
+      window.location.href = "otra_pagina.html";
+    }
+
+
+    // Caja de comentarios .................
+
+    // Cargar comentarios previos al cargar la página
+    
+    window.onload = function () {
+      cargarComentarios();
+    };
+
+    // Función para cargar comentarios previos desde el almacenamiento local
+    function cargarComentarios() {
+      var comentarios = JSON.parse(localStorage.getItem('comentarios'));
+      if (comentarios) {
+        comentarios.forEach(function (comentario) {
+          mostrarComentario(comentario);
+        });
+      }
+    }
+
+    // Función para mostrar un comentario en la página
+    function mostrarComentario(comentario) {
+      var comentariosDiv = document.getElementById("comentarios");
+      var comentarioDiv = document.createElement("div");
+      comentarioDiv.className = "comentario";
+      comentarioDiv.innerHTML = "<p>" + comentario.texto + "</p>";
+      comentariosDiv.appendChild(comentarioDiv);
+    }
+
+    // Función para publicar un comentario
+    function publicarComentario() {
+      var commentText = document.getElementById("commentText").value;
+      if (commentText.trim() === "") {
+        alert("Por favor, escribe un comentario antes de publicarlo.");
+        return;
+      }
+
+      var comentario = {
+        texto: commentText,
+        fecha: new Date().toISOString()
+      };
+
+      mostrarComentario(comentario);
+
+      // Obtener comentarios actuales del almacenamiento local
+      var comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+
+      // Agregar el nuevo comentario a la lista
+      comentarios.push(comentario);
+
+      // Almacenar la lista actualizada de comentarios en el almacenamiento local
+      localStorage.setItem('comentarios', JSON.stringify(comentarios));
+
+      // Limpiar el cuadro de texto después de publicar
+      document.getElementById("commentText").value = "";
+    }
   </script>
 </body>
 
