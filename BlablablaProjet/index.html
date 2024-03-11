@@ -42,13 +42,18 @@
             <p>Esta es una breve descripción de la publicación. Aquí puedes escribir lo que desees sobre el contenido
               que estás compartiendo.</p>
           </div>
+
+          <div id="disqusContainer" style="display: none;">
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
         </div>
         <div class="post-actions">
           <div class="action-icons">
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" class="imageToClick" alt="comentarios" class="comentarios">
         </div>
       </div>
 
@@ -74,7 +79,7 @@
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" alt="" class="imageToClick">
         </div>
       </div>
 
@@ -100,7 +105,7 @@
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" alt="" class="imageToClick">
         </div>
       </div>
 
@@ -126,11 +131,30 @@
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" alt="" class="imageToClick">
         </div>
       </div>
     </div>
   </main>
+  <script>
+    // Función para abrir Disqus cuando se hace clic en la imagen
+    function openDisqus() {
+            var disqusContainer = document.getElementById('disqusContainer');
+            disqusContainer.style.display = 'block'; // Mostrar el contenedor Disqus
+            // Insertar el script de Disqus
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hisarts.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+
+        // Agregar un event listener a todas las imágenes
+        var images = document.getElementsByClassName('imageToClick');
+        for (var i = 0; i < images.length; i++) {
+            images[i].addEventListener('click', openDisqus);
+        }
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </body>
 
 </html>
