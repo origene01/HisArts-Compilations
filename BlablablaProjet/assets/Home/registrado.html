@@ -49,19 +49,13 @@
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" alt="" class="imageToClick">
         </div>
-
-        <div class="container-comentarios" id="container">
-          <h3>Comentarios</h3>
-          <textarea id="commentText" placeholder="Escribe tu comentario aquí..." required></textarea>
-          <button onclick="publicarComentario()" id="comentar">Publicar Comentario</button>
-
-          <div id="comentarios">
-            <!-- Aquí se mostrarán los comentarios -->
+        <div id="disqusContainer" style="display: none;">
+          <div id="disqus_thread"></div>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+              Disqus.</a></noscript>
           </div>
-        </div>
-
       </div>
 
       <div class="post2">
@@ -86,7 +80,7 @@
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" alt="" class="imageToClick">
         </div>
       </div>
 
@@ -112,7 +106,7 @@
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" alt="" class="imageToClick">
         </div>
       </div>
 
@@ -138,7 +132,7 @@
             <img src="../../img/estrella_icon.png" alt="Me gusta-reacion">
             <img src="../../img/Save_publications.png" alt="Me gusta-reacion">
           </div>
-          <img src="../../img/Comentarios.png" alt="" class="comentarios">
+          <img src="../../img/Comentarios.png" alt="" class="imageToClick">
         </div>
       </div>
     </div>
@@ -182,65 +176,23 @@
 
 
   <script>
-    function redirectToPage() {
-      window.location.href = "otra_pagina.html";
-    }
 
+    // Función para abrir Disqus cuando se hace clic en la imagen
+    function openDisqus() {
+            var disqusContainer = document.getElementById('disqusContainer');
+            disqusContainer.style.display = 'block'; // Mostrar el contenedor Disqus
+            // Insertar el script de Disqus
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hisarts.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
 
-    // Caja de comentarios .................
-
-    // Cargar comentarios previos al cargar la página
-    
-    window.onload = function () {
-      cargarComentarios();
-    };
-
-    // Función para cargar comentarios previos desde el almacenamiento local
-    function cargarComentarios() {
-      var comentarios = JSON.parse(localStorage.getItem('comentarios'));
-      if (comentarios) {
-        comentarios.forEach(function (comentario) {
-          mostrarComentario(comentario);
-        });
-      }
-    }
-
-    // Función para mostrar un comentario en la página
-    function mostrarComentario(comentario) {
-      var comentariosDiv = document.getElementById("comentarios");
-      var comentarioDiv = document.createElement("div");
-      comentarioDiv.className = "comentario";
-      comentarioDiv.innerHTML = "<p>" + comentario.texto + "</p>";
-      comentariosDiv.appendChild(comentarioDiv);
-    }
-
-    // Función para publicar un comentario
-    function publicarComentario() {
-      var commentText = document.getElementById("commentText").value;
-      if (commentText.trim() === "") {
-        alert("Por favor, escribe un comentario antes de publicarlo.");
-        return;
-      }
-
-      var comentario = {
-        texto: commentText,
-        fecha: new Date().toISOString()
-      };
-
-      mostrarComentario(comentario);
-
-      // Obtener comentarios actuales del almacenamiento local
-      var comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
-
-      // Agregar el nuevo comentario a la lista
-      comentarios.push(comentario);
-
-      // Almacenar la lista actualizada de comentarios en el almacenamiento local
-      localStorage.setItem('comentarios', JSON.stringify(comentarios));
-
-      // Limpiar el cuadro de texto después de publicar
-      document.getElementById("commentText").value = "";
-    }
+        // Agregar un event listener a todas las imágenes
+        var images = document.getElementsByClassName('imageToClick');
+        for (var i = 0; i < images.length; i++) {
+            images[i].addEventListener('click', openDisqus);
+        }
   </script>
 </body>
 
