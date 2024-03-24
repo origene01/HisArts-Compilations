@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObrasDeArtes</title>
+  <style>
+
+    body{
+      background-color: #e7cbee69;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .box {
+      background-color: #d09dd4ab;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .box h2 {
+      margin-top: 0;
+    }
+
+    .box p {
+      color: #666;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dialog-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(223, 151, 231, 0.265);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .dialog-box {
+      background-color: #fff;
+      width: 80%;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #centerImage {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .imagen-con-bordes-desvanecidos {
+  filter: blur(2px);
+  border-radius: 15px;
+}
+
+.floating-button {
+            position: fixed;
+            bottom: 3.5em;
+            right: 20px;
+        }
+
+        .floating-button img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 8px 4px rgba(0, 0, 0, 0.265);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-button img:hover {
+            transform: scale(1.1);
+        }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Aquí deberías incluir dinámicamente las obras publicadas -->
+</div>
+
+<div class="dialog-overlay" id="dialog">
+  <div class="dialog-box">
+    <p>Aun no tienes obras publicadas. Tenemos desavilitada la opción para publicar por el momento</p>
+    <button onclick="cerrarDialogo()">Cerrar</button>
+  </div>
+</div>
+<img id="centerImage" src="../img/decierto.png" alt="Imagen" width="200" class="imagen-con-bordes-desvanecidos">
+<div class="floating-button">
+  <a href="../assets/Home/registrado.html">
+      <img src="../img/inicio.png" alt="Cámara">
+  </a>
+</div>
+<script>
+  // Función para mostrar el diálogo
+  function mostrarDialogo() {
+    document.getElementById("dialog").style.display = "flex";
+  }
+
+  // Función para cerrar el diálogo
+  function cerrarDialogo() {
+    document.getElementById("dialog").style.display = "none";
+    document.getElementById("centerImage").style.display = "block";
+  }
+
+  // Aquí deberías incluir la lógica para determinar si el usuario tiene obras publicadas o no.
+  // Si no tiene obras publicadas, llama a la función mostrarDialogo() para mostrar el diálogo.
+</script>
+
+</body>
+</html>
