@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interes</title>
+  <style>
+
+    body{
+        background-color: rgba(255, 228, 196, 0.429);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 100;
+    }
+
+.category-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; /* Ajustar según el tamaño deseado */
+}
+
+.category {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 5px 15px rgba(213, 210, 215, 0.712);
+}
+
+.category img {
+  width: 200px; /* Tamaño de la imagen */
+  height: auto;
+  border-radius: 50px;
+}
+
+.category-title {
+  margin-top: 10px;
+  font-size: 24px; /* Tamaño del título */
+  font-weight: bold;
+}
+
+.floating-button {
+            position: fixed;
+            bottom: 3.5em;
+            right: 20px;
+        }
+
+        .floating-button img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 8px 4px rgba(0, 0, 0, 0.265);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-button img:hover {
+            transform: scale(1.1);
+        }
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="category-container">
+        <a href="pagina-canto.html" class="category">
+          <img src="../img/slider1.png" alt="Canto">
+          <div class="category-title">Canto</div>
+        </a>
+        <a href="pagina-pintura.html" class="category">
+          <img src="../img/categoria_pintura.jpg" alt="Pintura">
+          <div class="category-title">Pintura</div>
+        </a>
+        <a href="pagina-drama.html" class="category">
+          <img src="../img/categoria_poemas.jpg" alt="poesias">
+          <div class="category-title">Poemas</div>
+        </a>
+        <a href="pagina-escultura.html" class="category">
+          <img src="../img/categoria_escultura.jpg" alt="Escultura">
+          <div class="category-title">Escultura</div>
+        </a>
+      </div>
+      
+</div>
+
+
+<div class="floating-button">
+  <a href="../assets/Home/registrado.html">
+      <img src="../img/inicio.png" alt="inicio">
+  </a>
+</div>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.carousel');
+  const prevButton = document.querySelector('.prev-button');
+  const nextButton = document.querySelector('.next-button');
+
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    if (index < 0 || index >= carousel.children.length) return;
+    currentIndex = index;
+    const offset = -currentIndex * carousel.offsetWidth;
+    carousel.style.transform = `translateX(${offset}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    goToSlide(currentIndex - 1);
+  });
+
+  nextButton.addEventListener('click', () => {
+    goToSlide(currentIndex + 1);
+  });
+});
+
+</script>
+
+</body>
+</html>
