@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos</title>
+  <style>
+
+    body{
+        background-color: rgb(220, 217, 217);
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+  background-color: #91919184;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1800px;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+/* Parte del home (registrado) */
+.menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu img {
+  width: 30px;
+}
+
+/* -----------------------------*/
+
+.menu .registro {
+  display: block;
+  text-decoration: none;
+  padding: 10px 10px;
+  color: #ffffff;
+  background-color: #4d4d4d;
+  border-radius: 10px;
+}
+
+/* Media queries para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    align-items: center;
+  }
+
+  .menu {
+    margin-top: 10px;
+  }
+}
+    .video-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  
+}
+
+.custom-video {
+  width: 100%;
+  cursor: pointer;border-radius: 15px;
+}
+
+.video-title,
+.video-description {
+  margin: 10px 5px;
+}
+
+.video-description {
+  color: #666;
+}
+
+/* Controles personalizados de video */
+.custom-video::-webkit-media-controls {
+  display: none !important; /* Ocultar los controles predeterminados */
+}
+
+.custom-video-wrapper {
+  position: relative;
+}
+
+.custom-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  box-sizing: border-box;
+  opacity: 0; /* Ocultar los controles por defecto */
+  transition: opacity 0.3s;
+}
+
+.custom-video:hover .custom-video-controls {
+  opacity: 1; /* Mostrar los controles al pasar el ratón */
+}
+
+.custom-video-volume {
+  display: flex;
+  align-items: center;
+}
+
+.custom-video-volume-icon {
+  margin-right: 8px;
+}
+
+.custom-video-volume-slider {
+  width: 100px;
+}
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+          <img src="./../../../img/WhatsApp_Image_2024-02-28_at_2.03.01_PM-removebg-preview.png" alt="LogoHisarts">
+        </div>
+        <div class="menu">
+          <a href="../profile.html"><img src="./../../../img/Perfil.png" alt=""></a>
+          <a href="../notificaciones.html"><img src="./../../../img/img/notifications_icon_.png" alt=""></a>
+        </div>
+      </div>
+      <br><br>
+    <div class="video-container">
+        <div class="videos">
+          <div class="video">
+            <h2 class="video-title">@nedubiti</h2>
+            <p class="video-description">Esa niña tiene mucho talento cantando😂</p>
+            <video class="custom-video" >
+              <source src="./videos/Prueba.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video">
+            <h2 class="video-title">@ORaNSYMan</h2>
+            <p class="video-description">Descripción del Video 2</p>
+            <video class="custom-video"  >
+              <source src="./videos/Canto.mp4" type="video/mp4">
+            </video>
+          </div>
+          <!-- Agregar más videos según sea necesario -->
+          <div class="video">
+            <h2 class="video-title">@orig774</h2>
+            <p class="video-description">Descripción del Video 2</p>
+            <video class="custom-video" loop >
+              <source src="./videos/PruebaLOL.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- Agregar más videos según sea necesario -->
+    </div>
+  </div>
+
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+  const customVideos = document.querySelectorAll('.custom-video');
+
+  customVideos.forEach(video => {
+    const playPauseButton = document.createElement('button');
+    playPauseButton.className = 'custom-video-playpause';
+    playPauseButton.innerHTML = '&#9654;';
+    
+    const volumeSlider = document.createElement('input');
+    volumeSlider.type = 'range';
+    volumeSlider.className = 'custom-video-volume-slider';
+    volumeSlider.min = 0;
+    volumeSlider.max = 1;
+    volumeSlider.step = 0.01;
+    volumeSlider.value = 1;
+
+    const videoWrapper = document.createElement('div');
+    videoWrapper.className = 'custom-video-wrapper';
+    video.parentElement.insertBefore(videoWrapper, video);
+    videoWrapper.appendChild(video);
+    videoWrapper.appendChild(playPauseButton);
+    videoWrapper.appendChild(volumeSlider);
+
+    playPauseButton.addEventListener('click', function() {
+      if (video.paused) {
+        video.play();
+        playPauseButton.innerHTML = '❚❚';
+      } else {
+        video.pause();
+        playPauseButton.innerHTML = '&#9654;';
+      }
+    });
+
+    video.addEventListener('play', function() {
+      playPauseButton.innerHTML = '❚❚';
+    });
+
+    video.addEventListener('pause', function() {
+      playPauseButton.innerHTML = '&#9654;';
+    });
+
+    volumeSlider.addEventListener('input', function() {
+      video.volume = this.value;
+    });
+  });
+});
+
+
+  </script>
+</body>
+</html>
