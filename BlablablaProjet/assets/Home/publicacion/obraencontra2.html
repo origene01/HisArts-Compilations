@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obra</title>
+    <style>
+        /* Estilos para el encabezado */
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+header {
+    background-color: #aaa8a8;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+
+}
+
+/* Estilos para el contenido principal */
+main {
+    padding: 20px;
+}
+
+/* Estilos para la publicación */
+.publicacion {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.publicacion img {
+    max-width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+    height: auto;
+    margin-bottom: 20px; /* Agregamos un espacio entre la imagen y la información */
+}
+
+.informacion {
+    flex-basis: 100%; /* La información ocupará todo el ancho en dispositivos móviles */
+}
+
+/* Estilos para el tema de la publicación */
+.informacion h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la categoría y descripción de la publicación */
+.informacion p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.volver{
+    margin-left: 0,5em;
+    border-radius: 6px;   
+}
+
+.volver a{
+    color: rgb(60, 1, 1);
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 24px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: beige;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <h4>Obra encontrada</h4>
+    </header>
+    
+    <main>
+        <section class="publicacion">
+            <img src="../img/arte/encontrado1 (2).jpeg" alt="Descripción de la imagen">
+            <div class="informacion">
+                <h2>Tema de la Publicación</h2>
+                <p>Categoría: Categoría de la Publicación</p>
+                <p>De.scripción: Descripción detallada de la publicación.</p>
+            </div>
+        </section>
+
+        <div class="volver">
+            <a href="search.html">Volver</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selectores</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="../img/WhatsApp_Image_2024-02-28_at_2.03.01_PM-removebg-preview.png" alt="">
+    </div>
+    <h2>Regístrate</h2>
+    <form id="registrationForm">
+      <input type="email" id="email" placeholder="Correo electrónico">
+      <input type="text" id="name" placeholder="Nombre Completo">
+      <input type="number" id="number" placeholder="Teléfono">
+      <input type="password" id="password" placeholder="Contraseña">
+      <input type="submit" value="Registrarse">
+    </form>
+    <div class="message">¿Ya tienes una cuenta? <a href="Form.html">Inicia sesión</a></div>
+    <div id="profileName"></div>
+  
+    <script>
+      // Función para guardar los datos del formulario
+      document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Previene el envío del formulario
+  
+        // Obtiene los valores de los campos del formulario
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("number").value;
+        var password = document.getElementById("password").value;
+  
+        // Guarda los datos en el almacenamiento local del navegador
+        localStorage.setItem("username", name);
+        localStorage.setItem("useremail", email);
+        localStorage.setItem("phonenumber", phone);
+        localStorage.setItem("userpassword", password);
+  
+        // Muestra el nombre del perfil después del registro
+        document.getElementById("profileName").innerText = "Nombre de perfil: " + name;
+  
+        // Redirigir a la página de perfil después de registrarse
+        window.location.href = "profile.html";
+      });
+  
+      // Verifica si hay datos guardados en el almacenamiento local al cargar la página
+      window.onload = function() {
+        var savedUsername = localStorage.getItem("username");
+        if (savedUsername) {
+          document.getElementById("profileName").innerText = "Nombre de perfil: " + savedUsername;
+        }
+      };
+
+      // Redirigir a la página de perfil después de registrarse
+      
+      
+    </script>
+  </div>
+  </body>
+  </html>
