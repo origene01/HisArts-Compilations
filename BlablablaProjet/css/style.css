@@ -250,6 +250,20 @@ button:hover {
 
 }
 
+.seleccionDObra{
+  display: flex;
+  justify-content: center;
+  gap: 7em;
+}
+
+.seleccionDObra a{
+  text-decoration: none;
+  color: #beb9b953;
+  padding: 10px 15px 6px 2px;
+  background-color: #5657562e;
+  border-radius: 10px;
+}
+
 /* Menu inferior */
 
 .menu-inferior {
